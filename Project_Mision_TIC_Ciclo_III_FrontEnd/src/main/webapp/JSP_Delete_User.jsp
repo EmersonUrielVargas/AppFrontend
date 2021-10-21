@@ -113,7 +113,7 @@
 		<table>
 			<td><div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon1">Cedula</span> <label><input
-						type="number" required="required" name="deleteU_userId" class="form-control"
+						type="number" name="deleteU_userId" class="form-control"
 						placeholder="" aria-label="cedula" aria-describedby="basic-addon1"></label>
 				</div></td>
 				<tr></tr>

@@ -113,31 +113,31 @@
 		<table>
 			<td><div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon1">Cedula</span> <label><input
-						type="number" name="createU_userId" class="form-control"
+						type="number"  required="required" name="createU_userId" class="form-control"
 						placeholder="" aria-label="cedula" aria-describedby="basic-addon1"></label>
 				</div></td>
 			<td><div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon1">Nombre</span> <label><input
-						type="text" name="createU_userName" class="form-control"
+						type="text" required="required" name="createU_userName" class="form-control"
 						placeholder="" aria-label="Usuario"
 						aria-describedby="basic-addon1"></label>
 				</div></td>
 			<tr></tr>
 			<td><div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon1">Usuario</span> <label><input
-						type="text" name="createU_user" class="form-control"
+						type="text" required="required" name="createU_user" class="form-control"
 						placeholder="" aria-label="Nombre" aria-describedby="basic-addon1"></label>
 				</div></td>
 			<td><div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon1">Contraseña</span>
-					<label><input type="text" name="createU_password"
+					<label><input type="text" required="required" name="createU_password"
 						class="form-control" placeholder="" aria-label="Contraseña"
 						aria-describedby="basic-addon1"></label>
 				</div></td>
 			<tr></tr>
 			<td><div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon1">Correo
-						electronico</span> <label><input type="text"
+						electronico</span> <label><input type="text" required="required"
 						name="createU_emailUser" class="form-control" placeholder=""
 						aria-label="correo" aria-describedby="basic-addon1"></label>
 				</div></td>

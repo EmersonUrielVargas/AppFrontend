@@ -137,7 +137,7 @@
 			<tr></tr>
 			<td><div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon1">Correo
-						electronico</span> <label><input type="email" required="required"
+						electronico</span> <label><input type="text" required="required"
 						name="createU_emailUser" class="form-control" placeholder=""
 						aria-label="correo" aria-describedby="basic-addon1"></label>
 				</div></td>

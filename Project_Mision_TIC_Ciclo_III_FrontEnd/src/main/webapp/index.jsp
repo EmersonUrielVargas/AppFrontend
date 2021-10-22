@@ -23,11 +23,11 @@
 					<h1>BIENVENIDO</h1>
 					<!-- USERNAME INPUT -->
 					<label for="username">Usuario</label> <input type="text"
-						name="userName" placeholder="Enter Username">
+						name="userName" required="required" placeholder="Enter Username">
 
 					<!-- PASSWORD INPUT -->
 					<label for="Contraseña">Contraseña</label> <input type="contraseña"
-						name="passwordUser" placeholder="Enter Password"> <input
+						name="passwordUser" required="required" placeholder="Enter Password"> <input
 						type="submit" value="INGRESAR" name="Ingresar"> <a
 						href="#">Olvido su Contraseña?</a><br> <a href="#">No
 						tienes una cuenta?</a>

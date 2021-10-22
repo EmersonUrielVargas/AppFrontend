@@ -38,6 +38,36 @@ public class TestJSON {
 		}
 		return list;
 	}
+	
+	public static Users verifyAdmin() {
+		Users user = new Users();
+		try {
+			url = new URL(sitio + "users/checkAdmin/");
+			HttpURLConnection http = (HttpURLConnection) url.openConnection();
+			http.setRequestMethod("GET");
+			http.setRequestProperty("Accept", "application/json");
+			InputStream respuesta = http.getInputStream();
+			byte[] inp = respuesta.readAllBytes();
+			String json = "";
+			for (int i = 0; i < inp.length; i++) {
+				json += (char) inp[i];
+			}
+			JSONParser jsonParser = new JSONParser();
+			JSONObject innerObj = (JSONObject) jsonParser.parse(json);
+			user.setUser_id(Long.parseLong(innerObj.get("user_id").toString()));
+			user.setUser_email(innerObj.get("user_email").toString());
+			user.setUser_name(innerObj.get("user_name").toString());
+			user.setPassword(innerObj.get("password").toString());
+			user.setUser(innerObj.get("user").toString());
+
+			http.disconnect();
+		} catch (IOException | ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return user;
+	}
 
 	public static Users askUser(Long userId) {
 		Users user = new Users();
@@ -67,7 +97,6 @@ public class TestJSON {
 		}
 
 		return user;
-
 	}
 
 	public static boolean verifyUser(Long userId) {

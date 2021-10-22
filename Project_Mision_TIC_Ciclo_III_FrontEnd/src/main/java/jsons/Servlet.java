@@ -235,10 +235,17 @@ public class Servlet extends HttpServlet {
 	}
 
 	public void verifyUser(HttpServletRequest request, HttpServletResponse response) {
-		String user = request.getParameter("userName");
+		String userName = request.getParameter("userName");
 		String password = request.getParameter("passwordUser");
-
-		if (user.equals("admin") && password.equals("password")) {
+		Users user = TestJSON.verifyAdmin();
+		System.out.println("USUARIO ADMIN");
+		System.out.println(userName);
+		System.out.println(user.getUser());
+		System.out.println("CONTRASEÑA ADMIN");
+		System.out.println(password);
+		System.out.println(user.getPassword());
+		if (userName.equals(user.getUser()) && password.equals(user.getPassword())) {
+			System.out.println("ENTRO AQUI");
 			String page = "/JSP_Principal_Menu_Admin.jsp";
 			RequestDispatcher dispacher = request.getRequestDispatcher(page);
 			try {

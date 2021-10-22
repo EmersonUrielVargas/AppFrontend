@@ -21,7 +21,7 @@
 		crossorigin="anonymous"></script>
 
 	<%
-	Object auxRequest = request.getAttribute("resultAddUser");
+	Object auxRequest = request.getAttribute("resultUpdateUser");
 	if (auxRequest != null) {
 		boolean result = (boolean) auxRequest;
 		if (result == true) {
@@ -31,7 +31,7 @@
 		<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img"
 			aria-label="Success:">
 					<use xlink:href="#check-circle-fill" /></svg>
-		<div>Usuario agregado con éxito</div>
+		<div>Los datos del usuario se actualizaron exitosamente</div>
 	</div>
 
 	<%
@@ -42,7 +42,7 @@
 		<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img"
 			aria-label="Danger:">
 				<use xlink:href="#exclamation-triangle-fill" /></svg>
-		<div>El usuario ya existe en el sistema</div>
+		<div>Los datos del usuario no pudieron ser actualizados</div>
 	</div>
 
 
@@ -107,44 +107,44 @@
 	</nav>
 
 	<div class="text-center" style="background-color: #0b5ed7;">
-		<h4 class="h4" style="color: #fff">Creación de Usuarios</h4>
+		<h4 class="h4" style="color: #fff">Actualización de los datos del Usuario</h4>
 	</div>
 	<form method="post" action="./Servlet">
 		<table>
 			<td><div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon1">Cedula</span> <label><input
-						type="number" required="required" name="createU_userId" class="form-control"
+						type="number" name="updateU_userId" class="form-control"
 						placeholder="" aria-label="cedula" aria-describedby="basic-addon1"></label>
 				</div></td>
 			<td><div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon1">Nombre</span> <label><input
-						type="text" required="required" name="createU_userName" class="form-control"
+						type="text" required="required" name="updateU_userName" class="form-control"
 						placeholder="" aria-label="Usuario"
 						aria-describedby="basic-addon1"></label>
 				</div></td>
 			<tr></tr>
 			<td><div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon1">Usuario</span> <label><input
-						type="text" required="required" name="createU_user" class="form-control"
+						type="text" required="required" name="updateU_user" class="form-control"
 						placeholder="" aria-label="Nombre" aria-describedby="basic-addon1"></label>
 				</div></td>
 			<td><div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon1">Contraseña</span>
-					<label><input type="text" required="required" name="createU_password"
+					<label><input type="text"required="required" name="updateU_password"
 						class="form-control" placeholder="" aria-label="Contraseña"
 						aria-describedby="basic-addon1"></label>
 				</div></td>
 			<tr></tr>
 			<td><div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon1">Correo
-						electronico</span> <label><input type="email" required="required"
-						name="createU_emailUser" class="form-control" placeholder=""
+						electronico</span> <label><input type="text"
+						name="updateU_emailUser" required="required" class="form-control" placeholder=""
 						aria-label="correo" aria-describedby="basic-addon1"></label>
 				</div></td>
 			<tr></tr>
 
-			<td><button type="submit" name="createU_addUser"
-					class="btn btn-primary">Agregar Usuario</button></td>
+			<td><button type="submit" name="updateU_updateUser"
+					class="btn btn-primary">Actualizar Usuario</button></td>
 		</table>
 	</form>
 

@@ -51,7 +51,7 @@
 	}
 	%>
 	<div class="text-center">
-		<img src="img/Icon_Bakery.png" width="150">
+		<img src="img/Logo_Bakery.png" width="300">
 	</div>
 
 	<nav class=" nav justify-content-center bg-primary">

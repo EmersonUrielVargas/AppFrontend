@@ -13,12 +13,15 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="/home/frankma17/Documentos/Misión_Tic/Ciclo III/Desarrollo_de_Software/Semana 4/Material/json-simple-1.1.1.jar">
+	<classpathentry kind="lib" path="jpa.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/home/frankma17/Documentos/Misión_Tic/Ciclo III/Desarrollo_de_Software/Semana 4/Material/jpa.jar"/>
-	<classpathentry kind="lib" path="/home/frankma17/Documentos/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="json-simple-1.1.1.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

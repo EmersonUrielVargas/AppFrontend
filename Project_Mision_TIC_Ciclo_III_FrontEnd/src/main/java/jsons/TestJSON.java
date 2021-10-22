@@ -4,18 +4,17 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Iterator;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
 public class TestJSON {
 
 	private static URL url;
@@ -25,7 +24,7 @@ public class TestJSON {
 		JSONParser jsonParser = new JSONParser();
 		ArrayList<Users> list = new ArrayList<Users>();
 		JSONArray users = (JSONArray) jsonParser.parse(json);
-		Iterator i = users.iterator();
+		Iterator<?> i = users.iterator();
 		while (i.hasNext()) {
 			JSONObject innerObj = (JSONObject) i.next();
 			Users user = new Users();
@@ -43,9 +42,11 @@ public class TestJSON {
 		Users user = new Users();
 		try {
 			url = new URL(sitio + "users/checkAdmin/");
-			HttpURLConnection http = (HttpURLConnection) url.openConnection();
+			String authStr = Base64.getEncoder().encodeToString("usuario:tiendagenerica".getBytes());
+			HttpURLConnection http = (HttpURLConnection) (url).openConnection();
 			http.setRequestMethod("GET");
 			http.setRequestProperty("Accept", "application/json");
+			http.setRequestProperty("Authorization", "Basic "+ authStr);
 			InputStream respuesta = http.getInputStream();
 			byte[] inp = respuesta.readAllBytes();
 			String json = "";
@@ -62,7 +63,6 @@ public class TestJSON {
 
 			http.disconnect();
 		} catch (IOException | ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -73,9 +73,11 @@ public class TestJSON {
 		Users user = new Users();
 		try {
 			url = new URL(sitio + "users/showUser/" + userId);
-			HttpURLConnection http = (HttpURLConnection) url.openConnection();
+			String authStr = Base64.getEncoder().encodeToString("usuario:tiendagenerica".getBytes());
+			HttpURLConnection http = (HttpURLConnection)url.openConnection();
 			http.setRequestMethod("GET");
 			http.setRequestProperty("Accept", "application/json");
+			http.setRequestProperty("Authorization", "Basic "+authStr);
 			InputStream respuesta = http.getInputStream();
 			byte[] inp = respuesta.readAllBytes();
 			String json = "";
@@ -92,7 +94,6 @@ public class TestJSON {
 
 			http.disconnect();
 		} catch (IOException | ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -103,9 +104,11 @@ public class TestJSON {
 		boolean result = false;
 		try {
 			url = new URL(sitio + "users/verifyUser/" + userId);
+			String authStr = Base64.getEncoder().encodeToString("usuario:tiendagenerica".getBytes());
 			HttpURLConnection http = (HttpURLConnection) url.openConnection();
 			http.setRequestMethod("GET");
 			http.setRequestProperty("Accept", "application/json");
+			http.setRequestProperty("Authorization", "Basic "+authStr);
 			InputStream respuesta = http.getInputStream();
 			byte[] inp = respuesta.readAllBytes();
 			String json = "";
@@ -116,7 +119,6 @@ public class TestJSON {
 			result = (boolean) jsonParser.parse(json);
 			http.disconnect();
 		} catch (IOException | ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -126,9 +128,11 @@ public class TestJSON {
 
 	public static ArrayList<Users> getJSON() throws IOException, ParseException {
 		url = new URL(sitio + "users/listUsers");
+		String authStr = Base64.getEncoder().encodeToString("usuario:tiendagenerica".getBytes());
 		HttpURLConnection http = (HttpURLConnection) url.openConnection();
 		http.setRequestMethod("GET");
 		http.setRequestProperty("Accept", "application/json");
+		http.setRequestProperty("Authorization", "Basic "+authStr);
 		InputStream respuesta = http.getInputStream();
 		byte[] inp = respuesta.readAllBytes();
 		String json = "";
@@ -148,6 +152,7 @@ public class TestJSON {
 		} else {
 
 			url = new URL(sitio + "users/saveUser");
+			String authStr = Base64.getEncoder().encodeToString("usuario:tiendagenerica".getBytes());
 			HttpURLConnection http;
 			http = (HttpURLConnection) url.openConnection();
 			try {
@@ -157,6 +162,7 @@ public class TestJSON {
 			}
 			http.setDoOutput(true);
 			http.setRequestProperty("Accept", "application/json");
+			http.setRequestProperty("Authorization", "Basic "+authStr);
 			http.setRequestProperty("Content-Type", "application/json");
 			String data = "{" + "\"user_id\":\"" + usuario.getUser_id() + "\",\"user_email\": \""
 					+ usuario.getUser_email() + "\",\"user_name\": \"" + usuario.getUser_name() + "\",\"password\":\""
@@ -172,6 +178,7 @@ public class TestJSON {
 
 	public static int putJSON(Users usuario) throws IOException {
 		url = new URL(sitio + "users/updateUser");
+		String authStr = Base64.getEncoder().encodeToString("usuario:tiendagenerica".getBytes());
 		HttpURLConnection http;
 		http = (HttpURLConnection) url.openConnection();
 		try {
@@ -181,6 +188,7 @@ public class TestJSON {
 		}
 		http.setDoOutput(true);
 		http.setRequestProperty("Accept", "application/json");
+		http.setRequestProperty("Authorization", "Basic "+authStr);
 		http.setRequestProperty("Content-Type", "application/json");
 		String data = "{" + "\"user_id\":\"" + usuario.getUser_id() + "\",\"user_email\": \"" + usuario.getUser_email()
 				+ "\",\"user_name\": \"" + usuario.getUser_name() + "\",\"password\":\"" + usuario.getPassword()
@@ -195,6 +203,7 @@ public class TestJSON {
 
 	public static int deleteJSON(Long userId) throws IOException {
 		url = new URL(sitio + "users/deleteUser/" + userId);
+		String authStr = Base64.getEncoder().encodeToString("usuario:tiendagenerica".getBytes());
 		HttpURLConnection http;
 		http = (HttpURLConnection) url.openConnection();
 		try {
@@ -204,6 +213,7 @@ public class TestJSON {
 		}
 		http.setDoOutput(true);
 		http.setRequestProperty("Accept", "application/json");
+		http.setRequestProperty("Authorization", "Basic "+authStr);
 		int respuesta = http.getResponseCode();
 		http.disconnect();
 		return respuesta;

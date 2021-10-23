@@ -21,7 +21,7 @@
 		crossorigin="anonymous"></script>
 
 	<%
-	Object auxRequest = request.getAttribute("resultDeleteUser");
+	Object auxRequest = request.getAttribute("resultDeleteVendor");
 	if (auxRequest != null) {
 		boolean result = (boolean) auxRequest;
 		if (result == true) {
@@ -31,7 +31,7 @@
 		<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img"
 			aria-label="Success:">
 					<use xlink:href="#check-circle-fill" /></svg>
-		<div>Los datos del usuario se eliminaron exitosamente</div>
+		<div>Los datos del cliente se eliminaron exitosamente</div>
 	</div>
 
 	<%
@@ -42,7 +42,7 @@
 		<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img"
 			aria-label="Danger:">
 				<use xlink:href="#exclamation-triangle-fill" /></svg>
-		<div>Los datos del usuario no pudieron ser eliminados</div>
+		<div>Los datos del cliente no pudieron ser eliminados</div>
 	</div>
 
 
@@ -54,7 +54,7 @@
 		<img src="img/Icon_Bakery.png" width="150">
 	</div>
 
-	<nav class=" nav justify-content-center bg-primary">
+		<nav class=" nav justify-content-center bg-primary">
 		<li class="nav-item "><a class="nav-link active"
 			data-bs-toggle="dropdown" href="JSP_Principal_Menu_Admin.jsp" role="button"
 			aria-expanded="false" style="color: #fff">Home</a></li>
@@ -118,18 +118,18 @@
 	</nav>
 
 	<div class="text-center" style="background-color: #0b5ed7;">
-		<h4 class="h4" style="color: #fff">Eliminación de Usuario</h4>
+		<h4 class="h4" style="color: #fff">Eliminación de Proveedor</h4>
 	</div>
 	<form method="post" action="./Servlet">
 		<table>
 			<td><div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon1">Cedula</span> <label><input
-						type="number" name="deleteU_userId" class="form-control"
+						type="number" name="deleteV_vendorNit" class="form-control"
 						placeholder="" aria-label="cedula" aria-describedby="basic-addon1"></label>
 				</div></td>
 				<tr></tr>
 
-			<td><button type="submit" name="deleteU_deleteUser"
+			<td><button type="submit" name="deleteV_deleteVendor"
 					class="btn btn-primary">Eliminar Usuario</button></td>
 		</table>
 	</form>

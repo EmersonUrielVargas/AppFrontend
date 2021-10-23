@@ -24,7 +24,7 @@
 
 	<nav class=" nav justify-content-center bg-primary">
 		<li class="nav-item "><a class="nav-link active"
-			data-bs-toggle="dropdown" href="#" role="button"
+			data-bs-toggle="dropdown" href="JSP_Principal_Menu_Admin.jsp" role="button"
 			aria-expanded="false" style="color: #fff">Home</a></li>
 
 
@@ -58,10 +58,10 @@
 			role="button" aria-expanded="false" style="color: #fff">Clientes</a>
 			<ul class="dropdown-menu bg-primary">
 				<li><a class="dropdown-item" style="color: #fff"
-					href="Usuarios.jsp">Agregar</a></li>
-				<li><a class="dropdown-item" style="color: #fff" href="#">Actualizar</a></li>
-				<li><a class="dropdown-item" style="color: #fff" href="#">Consultar</a></li>
-				<li><a class="dropdown-item" style="color: #fff" href="#">Eliminar</a></li>
+					href="JSP_Create_Client.jsp">Agregar</a></li>
+				<li><a class="dropdown-item" style="color: #fff" href="JSP_Update_Client.jsp">Actualizar</a></li>
+				<li><a class="dropdown-item" style="color: #fff" href="JSP_Show_Client.jsp">Consultar</a></li>
+				<li><a class="dropdown-item" style="color: #fff" href="JSP_Delete_Client.jsp">Eliminar</a></li>
 			</ul></li>
 		<li class="nav-item "><a class="nav-link active"
 			data-bs-toggle="dropdown" href="#" role="button"
@@ -81,7 +81,7 @@
 			</ul></li>
 
 		<li class="nav-item "><a class="nav-link active"
-			data-bs-toggle="dropdown" href="#" role="button"
+			data-bs-toggle="dropdown" href="index.jsp" role="button"
 			aria-expanded="false" style="color: #fff">Cerrar sesión</a></li>
 	</nav>
 

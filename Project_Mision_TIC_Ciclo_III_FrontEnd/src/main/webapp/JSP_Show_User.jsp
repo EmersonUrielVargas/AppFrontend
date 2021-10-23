@@ -43,13 +43,14 @@
 
 	<nav class=" nav justify-content-center bg-primary">
 		<li class="nav-item "><a class="nav-link active"
-			data-bs-toggle="dropdown" href="JSP_Principal_Menu_Admin"
-			role="button" aria-expanded="false" style="color: #fff">Home</a></li>
+			data-bs-toggle="dropdown" href="JSP_Principal_Menu_Admin.jsp" role="button"
+			aria-expanded="false" style="color: #fff">Home</a></li>
 
 
 		<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
 			data-bs-toggle="dropdown" href="#" role="button"
 			aria-expanded="false" style="color: #fff">Usuarios</a>
+
 			<ul class="dropdown-menu bg-primary">
 				<li><a class="dropdown-item" style="color: #fff"
 					href="JSP_Create_User.jsp">Agregar</a></li>
@@ -76,14 +77,20 @@
 			role="button" aria-expanded="false" style="color: #fff">Clientes</a>
 			<ul class="dropdown-menu bg-primary">
 				<li><a class="dropdown-item" style="color: #fff"
-					href="Usuarios.jsp">Agregar</a></li>
-				<li><a class="dropdown-item" style="color: #fff" href="#">Actualizar</a></li>
-				<li><a class="dropdown-item" style="color: #fff" href="#">Consultar</a></li>
-				<li><a class="dropdown-item" style="color: #fff" href="#">Eliminar</a></li>
+					href="JSP_Create_Client.jsp">Agregar</a></li>
+				<li><a class="dropdown-item" style="color: #fff" href="JSP_Update_Client.jsp">Actualizar</a></li>
+				<li><a class="dropdown-item" style="color: #fff" href="JSP_Show_Client.jsp">Consultar</a></li>
+				<li><a class="dropdown-item" style="color: #fff" href="JSP_Delete_Client.jsp">Eliminar</a></li>
 			</ul></li>
+		<li class="nav-item "><a class="nav-link active"
+			data-bs-toggle="dropdown" href="#" role="button"
+			aria-expanded="false" style="color: #fff">Productos</a></li>
+		<li class="nav-item "><a class="nav-link active"
+			data-bs-toggle="dropdown" href="#" role="button"
+			aria-expanded="false" style="color: #fff">Ventas</a></li>
 		<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
 			data-bs-toggle="dropdown" href="#" role="button"
-			aria-expanded="false" style="color: #fff">Productos</a>
+			aria-expanded="false" style="color: #fff">Reportes</a>
 			<ul class="dropdown-menu bg-primary">
 				<li><a class="dropdown-item" style="color: #fff"
 					href="Usuarios.jsp">Agregar</a></li>
@@ -91,6 +98,10 @@
 				<li><a class="dropdown-item" style="color: #fff" href="#">Consultar</a></li>
 				<li><a class="dropdown-item" style="color: #fff" href="#">Eliminar</a></li>
 			</ul></li>
+
+		<li class="nav-item "><a class="nav-link active"
+			data-bs-toggle="dropdown" href="index.jsp" role="button"
+			aria-expanded="false" style="color: #fff">Cerrar sesión</a></li>
 	</nav>
 
 	<div class="text-center" style="background-color: #0b5ed7;">

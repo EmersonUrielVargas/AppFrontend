@@ -21,7 +21,7 @@
 		crossorigin="anonymous"></script>
 
 	<%
-	Object auxRequest = request.getAttribute("resultDeleteUser");
+	Object auxRequest = request.getAttribute("resultDeleteClient");
 	if (auxRequest != null) {
 		boolean result = (boolean) auxRequest;
 		if (result == true) {
@@ -31,7 +31,7 @@
 		<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img"
 			aria-label="Success:">
 					<use xlink:href="#check-circle-fill" /></svg>
-		<div>Los datos del usuario se eliminaron exitosamente</div>
+		<div>Los datos del cliente se eliminaron exitosamente</div>
 	</div>
 
 	<%
@@ -42,7 +42,7 @@
 		<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img"
 			aria-label="Danger:">
 				<use xlink:href="#exclamation-triangle-fill" /></svg>
-		<div>Los datos del usuario no pudieron ser eliminados</div>
+		<div>Los datos del cliente no pudieron ser eliminados</div>
 	</div>
 
 
@@ -54,15 +54,16 @@
 		<img src="img/Icon_Bakery.png" width="150">
 	</div>
 
-	<nav class=" nav justify-content-center bg-primary">
+		<nav class=" nav justify-content-center bg-primary">
 		<li class="nav-item "><a class="nav-link active"
-			data-bs-toggle="dropdown" href="JSP_Principal_Menu_Admin"
-			role="button" aria-expanded="false" style="color: #fff">Home</a></li>
+			data-bs-toggle="dropdown" href="JSP_Principal_Menu_Admin.jsp" role="button"
+			aria-expanded="false" style="color: #fff">Home</a></li>
 
 
 		<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
 			data-bs-toggle="dropdown" href="#" role="button"
 			aria-expanded="false" style="color: #fff">Usuarios</a>
+
 			<ul class="dropdown-menu bg-primary">
 				<li><a class="dropdown-item" style="color: #fff"
 					href="JSP_Create_User.jsp">Agregar</a></li>
@@ -89,14 +90,20 @@
 			role="button" aria-expanded="false" style="color: #fff">Clientes</a>
 			<ul class="dropdown-menu bg-primary">
 				<li><a class="dropdown-item" style="color: #fff"
-					href="Usuarios.jsp">Agregar</a></li>
-				<li><a class="dropdown-item" style="color: #fff" href="#">Actualizar</a></li>
-				<li><a class="dropdown-item" style="color: #fff" href="#">Consultar</a></li>
-				<li><a class="dropdown-item" style="color: #fff" href="#">Eliminar</a></li>
+					href="JSP_Create_Client.jsp">Agregar</a></li>
+				<li><a class="dropdown-item" style="color: #fff" href="JSP_Update_Client.jsp">Actualizar</a></li>
+				<li><a class="dropdown-item" style="color: #fff" href="JSP_Show_Client.jsp">Consultar</a></li>
+				<li><a class="dropdown-item" style="color: #fff" href="JSP_Delete_Client.jsp">Eliminar</a></li>
 			</ul></li>
+		<li class="nav-item "><a class="nav-link active"
+			data-bs-toggle="dropdown" href="#" role="button"
+			aria-expanded="false" style="color: #fff">Productos</a></li>
+		<li class="nav-item "><a class="nav-link active"
+			data-bs-toggle="dropdown" href="#" role="button"
+			aria-expanded="false" style="color: #fff">Ventas</a></li>
 		<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
 			data-bs-toggle="dropdown" href="#" role="button"
-			aria-expanded="false" style="color: #fff">Productos</a>
+			aria-expanded="false" style="color: #fff">Reportes</a>
 			<ul class="dropdown-menu bg-primary">
 				<li><a class="dropdown-item" style="color: #fff"
 					href="Usuarios.jsp">Agregar</a></li>
@@ -104,6 +111,10 @@
 				<li><a class="dropdown-item" style="color: #fff" href="#">Consultar</a></li>
 				<li><a class="dropdown-item" style="color: #fff" href="#">Eliminar</a></li>
 			</ul></li>
+
+		<li class="nav-item "><a class="nav-link active"
+			data-bs-toggle="dropdown" href="index.jsp" role="button"
+			aria-expanded="false" style="color: #fff">Cerrar sesión</a></li>
 	</nav>
 
 	<div class="text-center" style="background-color: #0b5ed7;">
@@ -113,12 +124,12 @@
 		<table>
 			<td><div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon1">Cedula</span> <label><input
-						type="number" name="deleteU_userId" class="form-control"
+						type="number" name="deleteC_clientId" class="form-control"
 						placeholder="" aria-label="cedula" aria-describedby="basic-addon1"></label>
 				</div></td>
 				<tr></tr>
 
-			<td><button type="submit" name="deleteU_deleteUser"
+			<td><button type="submit" name="deleteC_deleteClient"
 					class="btn btn-primary">Eliminar Usuario</button></td>
 		</table>
 	</form>

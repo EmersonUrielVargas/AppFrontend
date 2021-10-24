@@ -85,7 +85,7 @@
 			aria-expanded="false" style="color: #fff">Cerrar sesión</a></li>
 	</nav>
 
-	<div class="text-center" align="left">
+	<div class="text-center" align="left" >
 		<img src="img/Principal_Page.jpg" width=90%>
 	</div>
 </body>

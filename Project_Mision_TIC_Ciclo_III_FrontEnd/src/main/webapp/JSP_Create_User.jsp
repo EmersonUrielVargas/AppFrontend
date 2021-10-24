@@ -170,7 +170,7 @@
 				</form>
 
 			</div>
-			<div class="col-3" style="background-color: blue"></div>
+			
 		</div>
 	</div>
 

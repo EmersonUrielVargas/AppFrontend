@@ -37,7 +37,6 @@ public class Servlet extends HttpServlet {
 		String eliminar = request.getParameter("Eliminar");
 		String actualizar = request.getParameter("Actualizar");
 		String ingresar = request.getParameter("Ingresar");
-		Part arch = request.getPart(ingresar)
 
 		if (agregar != null) {
 			this.addUser(request, response);

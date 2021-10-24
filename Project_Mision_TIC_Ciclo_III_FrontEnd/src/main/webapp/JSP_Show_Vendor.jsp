@@ -23,75 +23,7 @@
 	Vendors vendor = (Vendors) request.getAttribute("resultShowVendor");
 	%>
 
-	<div class="text-center">
-		<img src="img/Icon_Bakery.png" width="150">
-	</div>
-
-	<nav class=" nav justify-content-center bg-primary">
-		<li class="nav-item "><a class="nav-link active"
-			data-bs-toggle="dropdown" href="JSP_Principal_Menu_Admin.jsp"
-			role="button" aria-expanded="false" style="color: #fff">Home</a></li>
-
-
-		<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
-			data-bs-toggle="dropdown" href="#" role="button"
-			aria-expanded="false" style="color: #fff">Usuarios</a>
-
-			<ul class="dropdown-menu bg-primary">
-				<li><a class="dropdown-item" style="color: #fff"
-					href="JSP_Create_User.jsp">Agregar</a></li>
-				<li><a class="dropdown-item" style="color: #fff"
-					href="JSP_Update_User.jsp"">Actualizar</a></li>
-				<li><a class="dropdown-item" style="color: #fff"
-					href="JSP_Show_User.jsp">Consultar</a></li>
-				<li><a class="dropdown-item" style="color: #fff"
-					href="JSP_Delete_User.jsp">Eliminar</a></li>
-			</ul></li>
-
-		<li class="nav-item dropdown "><a
-			class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
-			role="button" aria-expanded="false" style="color: #fff">Proveedores</a>
-			<ul class="dropdown-menu bg-primary">
-				<li><a class="dropdown-item" style="color: #fff"
-					href="Usuarios.jsp">Agregar</a></li>
-				<li><a class="dropdown-item" style="color: #fff" href="#">Actualizar</a></li>
-				<li><a class="dropdown-item" style="color: #fff" href="#">Consultar</a></li>
-				<li><a class="dropdown-item" style="color: #fff" href="#">Eliminar</a></li>
-			</ul></li>
-		<li class="nav-item dropdown "><a
-			class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
-			role="button" aria-expanded="false" style="color: #fff">Clientes</a>
-			<ul class="dropdown-menu bg-primary">
-				<li><a class="dropdown-item" style="color: #fff"
-					href="JSP_Create_Client.jsp">Agregar</a></li>
-				<li><a class="dropdown-item" style="color: #fff"
-					href="JSP_Update_Client.jsp">Actualizar</a></li>
-				<li><a class="dropdown-item" style="color: #fff"
-					href="JSP_Show_Client.jsp">Consultar</a></li>
-				<li><a class="dropdown-item" style="color: #fff"
-					href="JSP_Delete_Client.jsp">Eliminar</a></li>
-			</ul></li>
-		<li class="nav-item "><a class="nav-link active"
-			data-bs-toggle="dropdown" href="#" role="button"
-			aria-expanded="false" style="color: #fff">Productos</a></li>
-		<li class="nav-item "><a class="nav-link active"
-			data-bs-toggle="dropdown" href="#" role="button"
-			aria-expanded="false" style="color: #fff">Ventas</a></li>
-		<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
-			data-bs-toggle="dropdown" href="#" role="button"
-			aria-expanded="false" style="color: #fff">Reportes</a>
-			<ul class="dropdown-menu bg-primary">
-				<li><a class="dropdown-item" style="color: #fff"
-					href="Usuarios.jsp">Agregar</a></li>
-				<li><a class="dropdown-item" style="color: #fff" href="#">Actualizar</a></li>
-				<li><a class="dropdown-item" style="color: #fff" href="#">Consultar</a></li>
-				<li><a class="dropdown-item" style="color: #fff" href="#">Eliminar</a></li>
-			</ul></li>
-
-		<li class="nav-item "><a class="nav-link active"
-			data-bs-toggle="dropdown" href="index.jsp" role="button"
-			aria-expanded="false" style="color: #fff">Cerrar sesión</a></li>
-	</nav>
+	<iframe src ="JSP_Menu.jsp" style="width: 100%; height: 70pt"></iframe>
 
 	<div class="text-center" style="background-color: #0b5ed7;">
 		<h4 class="h4" style="color: #fff">Consultar Provedor</h4>

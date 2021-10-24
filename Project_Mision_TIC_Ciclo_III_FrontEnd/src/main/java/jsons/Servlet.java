@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 /**
  * Servlet implementation class Servlet
@@ -36,6 +37,7 @@ public class Servlet extends HttpServlet {
 		String eliminar = request.getParameter("Eliminar");
 		String actualizar = request.getParameter("Actualizar");
 		String ingresar = request.getParameter("Ingresar");
+		Part arch = request.getPart(ingresar)
 
 		if (agregar != null) {
 			this.addUser(request, response);

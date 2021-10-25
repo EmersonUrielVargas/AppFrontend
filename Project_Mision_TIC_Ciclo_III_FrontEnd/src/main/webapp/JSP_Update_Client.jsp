@@ -135,7 +135,7 @@
 		<div class="row">
 		
 			<div class="col-3" align="left" style=" width: 600px">
-				<img src="img/User.jpg" width=100%></div>
+				<img src="img/client.jpg" width=100%></div>
 			
 			<div class="col-6" style="float: right; width: 55%">
 				<form method="post" action="./Servlet"  style=" margin-left: 5%; margin-top:10%; float: right; width: 100%">

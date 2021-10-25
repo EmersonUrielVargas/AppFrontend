@@ -1,20 +1,34 @@
 package jsons;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
+
+import com.csvreader.CsvReader;
+
 /**
  * Servlet implementation class Servlet
  */
 @WebServlet("/Servlet")
+@MultipartConfig(fileSizeThreshold = 1024 * 1024, maxFileSize = 1024 * 1024 * 5, maxRequestSize = 1024 * 1024 * 5 * 5)
+
 public class Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -73,6 +87,7 @@ public class Servlet extends HttpServlet {
 		String updateVendor = request.getParameter("updateV_updateVendor");
 		String deleteVendor = request.getParameter("deleteV_deleteVendor");
 		String showVendor = request.getParameter("showV_showVendor");
+		String addProducts = request.getParameter("addP_addProducts");
 
 		if (createUser != null) {
 			System.out.println("ENTRO A CREAR UN USUARIO");
@@ -132,10 +147,60 @@ public class Servlet extends HttpServlet {
 			System.out.println("ENTRO A BUSCAR UN PROVEDOR");
 			this.askVendor(request, response);
 		}
+
+		if (addProducts != null) {
+			System.out.println("ENTRO A AGREGAR PRODUCTOS");
+			this.addProducts(request, response);
+		}
 	}
 
-	// CRUD Users
+	private void addProducts(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		List<Products> products = new ArrayList<Products>();
+
+		Part part = request.getPart("fileProducts");
+		InputStream input = part.getInputStream();
+
 	
+	
+
+		try (BufferedReader fileReader = new BufferedReader(new InputStreamReader(input, "UTF-8"));
+				CSVParser csvParser = new CSVParser(fileReader,
+						CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim());) {
+
+			Iterable<CSVRecord> csvRecords = csvParser.getRecords();
+
+			for (CSVRecord record : csvRecords) {
+				String[] line = new String[record.size()];
+				for (int i = 0; i < line.length; i++) {
+					line[i] = record.get(i);
+				}
+				products.add(this.convertStringToProduct(line));
+			}
+		} catch (IOException e) {
+			throw new RuntimeException("fail to parse CSV file: " + e.getMessage());
+		}
+		
+		TestJSON.addProduct(products.get(0));
+		
+		for (Products product : products) {
+			System.out.println(product.toString());
+		}
+	}
+
+	private Products convertStringToProduct(String[] productText) {
+
+		long product_id = Long.parseLong(productText[0]);
+		double iva_buy = Double.parseDouble(productText[4]);
+		long vendor_nit = Long.parseLong(productText[2]);
+		String product_name = productText[1];
+		double price_buy = Double.parseDouble(productText[3]);
+		double price_sale = Double.parseDouble(productText[5]);
+
+		return new Products(product_id, iva_buy, vendor_nit, product_name, price_buy, price_sale);
+	}
+	
+	// CRUD Users
+
 	public void addUser(HttpServletRequest request, HttpServletResponse response) {
 		Users user = new Users();
 		String auxId = request.getParameter("createU_userId");
@@ -256,10 +321,8 @@ public class Servlet extends HttpServlet {
 		}
 	}
 
-	
-	
-	//CRUD Clients
-	
+	// CRUD Clients
+
 	public void addClient(HttpServletRequest request, HttpServletResponse response) {
 		Clients client = new Clients();
 		client.setClient_id(Long.parseLong(request.getParameter("createC_clientId")));
@@ -378,9 +441,8 @@ public class Servlet extends HttpServlet {
 		}
 	}
 
-	
-	//CRUD Vendors
-	
+	// CRUD Vendors
+
 	public void addVendor(HttpServletRequest request, HttpServletResponse response) {
 		Vendors vendor = new Vendors();
 		vendor.setVendor_nit(Long.parseLong(request.getParameter("createV_vendorNit")));
@@ -501,9 +563,8 @@ public class Servlet extends HttpServlet {
 		}
 	}
 
-	
-	//Verify Users , Clients , Vendors
-	
+	// Verify Users , Clients , Vendors
+
 	public void verifyUser(HttpServletRequest request, HttpServletResponse response) {
 		String userName = request.getParameter("userName");
 		String password = request.getParameter("passwordUser");
@@ -534,10 +595,8 @@ public class Servlet extends HttpServlet {
 		}
 	}
 
-	
-	
-	//Reports
-	
+	// Reports
+
 	public void listUsers(HttpServletRequest request, HttpServletResponse response) {
 		try {
 			ArrayList<Users> list = TestJSON.listUsers();

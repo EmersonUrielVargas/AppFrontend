@@ -23,5 +23,20 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Emerson Vargas/Documents/__UPTC_2021_I/MINTIC/Ciclo 3/AppFrontend/Project_Mision_TIC_Ciclo_III_FrontEnd/opencsv-2.2.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Emerson Vargas/Documents/__UPTC_2021_I/MINTIC/Ciclo 3/AppFrontend/Project_Mision_TIC_Ciclo_III_FrontEnd/commons-csv-1.6.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Emerson Vargas/Documents/__UPTC_2021_I/MINTIC/Ciclo 3/AppFrontend/Project_Mision_TIC_Ciclo_III_FrontEnd/javacsv.jar">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

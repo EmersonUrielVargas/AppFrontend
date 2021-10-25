@@ -10,19 +10,20 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Iterator;
+import java.util.List;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+
 public class TestJSON {
 
 	private static URL url;
 	private static String sitio = "http://localhost:5000/";
 
+	// CRUD Clients
 
-	//CRUD Clients
-	
 	public static int addClient(Clients client) throws IOException {
 		int respuesta = 0;
 		if (verifyClient(client.getClient_id())) {
@@ -40,11 +41,12 @@ public class TestJSON {
 			}
 			http.setDoOutput(true);
 			http.setRequestProperty("Accept", "application/json");
-			http.setRequestProperty("Authorization", "Basic "+authStr);
+			http.setRequestProperty("Authorization", "Basic " + authStr);
 			http.setRequestProperty("Content-Type", "application/json");
-			String data = "{" + "\"client_id\":\"" + client.getClient_id() + "\",\"client_address\": \""
-					+ client.getClient_address() + "\",\"client_email\": \"" + client.getClient_email() + "\",\"client_name\":\""
-					+ client.getClient_name()+ "\",\"client_phone\":\"" + client.getClient_phone() + "\"}";
+			String data = "{" + "\"client_id\":\"" + client.getClient_id() + "\",\"client_adress\": \""
+					+ client.getClient_address() + "\",\"client_email\": \"" + client.getClient_email()
+					+ "\",\"client_name\":\"" + client.getClient_name() + "\",\"client_telephone\":\""
+					+ client.getClient_phone() + "\"}";
 			byte[] out = data.getBytes(StandardCharsets.UTF_8);
 			OutputStream stream = http.getOutputStream();
 			stream.write(out);
@@ -55,7 +57,7 @@ public class TestJSON {
 	}
 
 	public static int updateClient(Clients client) throws IOException {
-		int respuesta=0;
+		int respuesta = 0;
 		url = new URL(sitio + "clients/updateClient");
 		String authStr = Base64.getEncoder().encodeToString("usuario:tiendagenerica".getBytes());
 		HttpURLConnection http;
@@ -67,11 +69,12 @@ public class TestJSON {
 		}
 		http.setDoOutput(true);
 		http.setRequestProperty("Accept", "application/json");
-		http.setRequestProperty("Authorization", "Basic "+authStr);
+		http.setRequestProperty("Authorization", "Basic " + authStr);
 		http.setRequestProperty("Content-Type", "application/json");
-		String data = "{" + "\"client_id\":\"" + client.getClient_id() + "\",\"client_address\": \""
-				+ client.getClient_address() + "\",\"client_email\": \"" + client.getClient_email() + "\",\"client_name\":\""
-				+ client.getClient_name()+ "\",\"client_phone\":\"" + client.getClient_phone() + "\"}";
+		String data = "{" + "\"client_id\":\"" + client.getClient_id() + "\",\"client_adress\": \""
+				+ client.getClient_address() + "\",\"client_email\": \"" + client.getClient_email()
+				+ "\",\"client_name\":\"" + client.getClient_name() + "\",\"client_telephone\":\""
+				+ client.getClient_phone() + "\"}";
 		byte[] out = data.getBytes(StandardCharsets.UTF_8);
 		OutputStream stream = http.getOutputStream();
 		stream.write(out);
@@ -92,7 +95,7 @@ public class TestJSON {
 		}
 		http.setDoOutput(true);
 		http.setRequestProperty("Accept", "application/json");
-		http.setRequestProperty("Authorization", "Basic "+authStr);
+		http.setRequestProperty("Authorization", "Basic " + authStr);
 		int respuesta = http.getResponseCode();
 		http.disconnect();
 		return respuesta;
@@ -103,10 +106,10 @@ public class TestJSON {
 		try {
 			url = new URL(sitio + "clients/showClient/" + userId);
 			String authStr = Base64.getEncoder().encodeToString("usuario:tiendagenerica".getBytes());
-			HttpURLConnection http = (HttpURLConnection)url.openConnection();
+			HttpURLConnection http = (HttpURLConnection) url.openConnection();
 			http.setRequestMethod("GET");
 			http.setRequestProperty("Accept", "application/json");
-			http.setRequestProperty("Authorization", "Basic "+authStr);
+			http.setRequestProperty("Authorization", "Basic " + authStr);
 			InputStream respuesta = http.getInputStream();
 			byte[] inp = respuesta.readAllBytes();
 			String json = "";
@@ -128,11 +131,9 @@ public class TestJSON {
 
 		return client;
 	}
-	
-	
 
-	//CRUD Users
-	
+	// CRUD Users
+
 	public static int addUser(Users usuario) throws IOException {
 		int respuesta = 0;
 		if (verifyUser(usuario.getUser_id())) {
@@ -150,7 +151,7 @@ public class TestJSON {
 			}
 			http.setDoOutput(true);
 			http.setRequestProperty("Accept", "application/json");
-			http.setRequestProperty("Authorization", "Basic "+authStr);
+			http.setRequestProperty("Authorization", "Basic " + authStr);
 			http.setRequestProperty("Content-Type", "application/json");
 			String data = "{" + "\"user_id\":\"" + usuario.getUser_id() + "\",\"user_email\": \""
 					+ usuario.getUser_email() + "\",\"user_name\": \"" + usuario.getUser_name() + "\",\"password\":\""
@@ -176,7 +177,7 @@ public class TestJSON {
 		}
 		http.setDoOutput(true);
 		http.setRequestProperty("Accept", "application/json");
-		http.setRequestProperty("Authorization", "Basic "+authStr);
+		http.setRequestProperty("Authorization", "Basic " + authStr);
 		http.setRequestProperty("Content-Type", "application/json");
 		String data = "{" + "\"user_id\":\"" + usuario.getUser_id() + "\",\"user_email\": \"" + usuario.getUser_email()
 				+ "\",\"user_name\": \"" + usuario.getUser_name() + "\",\"password\":\"" + usuario.getPassword()
@@ -201,7 +202,7 @@ public class TestJSON {
 		}
 		http.setDoOutput(true);
 		http.setRequestProperty("Accept", "application/json");
-		http.setRequestProperty("Authorization", "Basic "+authStr);
+		http.setRequestProperty("Authorization", "Basic " + authStr);
 		int respuesta = http.getResponseCode();
 		http.disconnect();
 		return respuesta;
@@ -212,10 +213,10 @@ public class TestJSON {
 		try {
 			url = new URL(sitio + "users/showUser/" + userId);
 			String authStr = Base64.getEncoder().encodeToString("usuario:tiendagenerica".getBytes());
-			HttpURLConnection http = (HttpURLConnection)url.openConnection();
+			HttpURLConnection http = (HttpURLConnection) url.openConnection();
 			http.setRequestMethod("GET");
 			http.setRequestProperty("Accept", "application/json");
-			http.setRequestProperty("Authorization", "Basic "+authStr);
+			http.setRequestProperty("Authorization", "Basic " + authStr);
 			InputStream respuesta = http.getInputStream();
 			byte[] inp = respuesta.readAllBytes();
 			String json = "";
@@ -237,10 +238,9 @@ public class TestJSON {
 
 		return user;
 	}
-	
-	
-	//CRUD Users
-	
+
+	// CRUD Users
+
 	public static int addVendor(Vendors vendor) throws IOException {
 		int respuesta = 0;
 		if (verifyVendor(vendor.getVendor_nit())) {
@@ -258,11 +258,12 @@ public class TestJSON {
 			}
 			http.setDoOutput(true);
 			http.setRequestProperty("Accept", "application/json");
-			http.setRequestProperty("Authorization", "Basic "+authStr);
+			http.setRequestProperty("Authorization", "Basic " + authStr);
 			http.setRequestProperty("Content-Type", "application/json");
 			String data = "{" + "\"vendor_nit\":\"" + vendor.getVendor_nit() + "\",\"vendor_city\": \""
-					+ vendor.getVendor_city() + "\",\"vendor_address\": \"" + vendor.getVendor_address() + "\",\"vendor_name\":\""
-					+ vendor.getVendor_name() + "\",\"vendor_phone\":\"" + vendor.getVendor_phone() + "\"}";
+					+ vendor.getVendor_city() + "\",\"vendor_address\": \"" + vendor.getVendor_address()
+					+ "\",\"vendor_name\":\"" + vendor.getVendor_name() + "\",\"vendor_phone\":\""
+					+ vendor.getVendor_phone() + "\"}";
 			byte[] out = data.getBytes(StandardCharsets.UTF_8);
 			OutputStream stream = http.getOutputStream();
 			stream.write(out);
@@ -272,9 +273,38 @@ public class TestJSON {
 		return respuesta;
 	}
 
+	public static int addProduct(Products product) throws IOException {
+		int respuesta = 0;
+
+		url = new URL(sitio + "products/saveProduct");
+		String authStr = Base64.getEncoder().encodeToString("usuario:tiendagenerica".getBytes());
+		HttpURLConnection http;
+		http = (HttpURLConnection) url.openConnection();
+		try {
+			http.setRequestMethod("POST");
+		} catch (ProtocolException e) {
+			e.printStackTrace();
+		}
+		http.setDoOutput(true);
+		http.setRequestProperty("Accept", "application/json");
+		http.setRequestProperty("Authorization", "Basic " + authStr);
+		http.setRequestProperty("Content-Type", "application/json");
+		String data = "{" + "\"product_id\":\"" + product.getProduct_id() + "\",\"iva_buy\": \""
+				+ product.getIva_buy() + "\",\"vendor_nit\": \"" + product.getVendor_nit()
+				+ "\",\"product_name\":\"" + product.getProduct_name()+ "\",\"price_buy\":\"" + product.getPrice_buy() + "\",\"price_sale\":\""
+				+ product.getPrice_sale() + "\"}";
+		byte[] out = data.getBytes(StandardCharsets.UTF_8);
+		OutputStream stream = http.getOutputStream();
+		stream.write(out);
+		respuesta = http.getResponseCode();
+		http.disconnect();
+
+		return respuesta;
+	}
+
 	public static int updateVendor(Vendors vendor) throws IOException {
 		int respuesta = 0;
-		if (verifyVendor(vendor.getVendor_nit())==false) {
+		if (verifyVendor(vendor.getVendor_nit()) == false) {
 			respuesta = 300;
 		} else {
 
@@ -289,11 +319,12 @@ public class TestJSON {
 			}
 			http.setDoOutput(true);
 			http.setRequestProperty("Accept", "application/json");
-			http.setRequestProperty("Authorization", "Basic "+authStr);
+			http.setRequestProperty("Authorization", "Basic " + authStr);
 			http.setRequestProperty("Content-Type", "application/json");
 			String data = "{" + "\"vendor_nit\":\"" + vendor.getVendor_nit() + "\",\"vendor_city\": \""
-					+ vendor.getVendor_city() + "\",\"vendor_address\": \"" + vendor.getVendor_address() + "\",\"vendor_name\":\""
-					+ vendor.getVendor_name() + "\",\"vendor_phone\":\"" + vendor.getVendor_phone() + "\"}";
+					+ vendor.getVendor_city() + "\",\"vendor_address\": \"" + vendor.getVendor_address()
+					+ "\",\"vendor_name\":\"" + vendor.getVendor_name() + "\",\"vendor_phone\":\""
+					+ vendor.getVendor_phone() + "\"}";
 			byte[] out = data.getBytes(StandardCharsets.UTF_8);
 			OutputStream stream = http.getOutputStream();
 			stream.write(out);
@@ -315,7 +346,25 @@ public class TestJSON {
 		}
 		http.setDoOutput(true);
 		http.setRequestProperty("Accept", "application/json");
-		http.setRequestProperty("Authorization", "Basic "+authStr);
+		http.setRequestProperty("Authorization", "Basic " + authStr);
+		int respuesta = http.getResponseCode();
+		http.disconnect();
+		return respuesta;
+	}
+
+	public static int addProducts(List<Products> products) throws IOException {
+		url = new URL(sitio + "products/addProducts/" + products);
+		String authStr = Base64.getEncoder().encodeToString("usuario:tiendagenerica".getBytes());
+		HttpURLConnection http;
+		http = (HttpURLConnection) url.openConnection();
+		try {
+			http.setRequestMethod("POST");
+		} catch (ProtocolException e) {
+			e.printStackTrace();
+		}
+		http.setDoOutput(true);
+		http.setRequestProperty("Accept", "application/json");
+		http.setRequestProperty("Authorization", "Basic " + authStr);
 		int respuesta = http.getResponseCode();
 		http.disconnect();
 		return respuesta;
@@ -326,10 +375,10 @@ public class TestJSON {
 		try {
 			url = new URL(sitio + "vendors/showVendor/" + userId);
 			String authStr = Base64.getEncoder().encodeToString("usuario:tiendagenerica".getBytes());
-			HttpURLConnection http = (HttpURLConnection)url.openConnection();
+			HttpURLConnection http = (HttpURLConnection) url.openConnection();
 			http.setRequestMethod("GET");
 			http.setRequestProperty("Accept", "application/json");
-			http.setRequestProperty("Authorization", "Basic "+authStr);
+			http.setRequestProperty("Authorization", "Basic " + authStr);
 			InputStream respuesta = http.getInputStream();
 			byte[] inp = respuesta.readAllBytes();
 			String json = "";
@@ -351,10 +400,8 @@ public class TestJSON {
 
 		return vendor;
 	}
-	
-	
-	
-	//Verify Clients , Vendors , Users
+
+	// Verify Clients , Vendors , Users
 
 	public static boolean verifyUser(Long userId) {
 		boolean result = false;
@@ -364,7 +411,7 @@ public class TestJSON {
 			HttpURLConnection http = (HttpURLConnection) url.openConnection();
 			http.setRequestMethod("GET");
 			http.setRequestProperty("Accept", "application/json");
-			http.setRequestProperty("Authorization", "Basic "+authStr);
+			http.setRequestProperty("Authorization", "Basic " + authStr);
 			InputStream respuesta = http.getInputStream();
 			byte[] inp = respuesta.readAllBytes();
 			String json = "";
@@ -390,7 +437,7 @@ public class TestJSON {
 			HttpURLConnection http = (HttpURLConnection) url.openConnection();
 			http.setRequestMethod("GET");
 			http.setRequestProperty("Accept", "application/json");
-			http.setRequestProperty("Authorization", "Basic "+authStr);
+			http.setRequestProperty("Authorization", "Basic " + authStr);
 			InputStream respuesta = http.getInputStream();
 			byte[] inp = respuesta.readAllBytes();
 			String json = "";
@@ -407,7 +454,7 @@ public class TestJSON {
 		return result;
 
 	}
-	
+
 	public static boolean verifyVendor(Long vendorNit) {
 		boolean result = false;
 		try {
@@ -416,7 +463,7 @@ public class TestJSON {
 			HttpURLConnection http = (HttpURLConnection) url.openConnection();
 			http.setRequestMethod("GET");
 			http.setRequestProperty("Accept", "application/json");
-			http.setRequestProperty("Authorization", "Basic "+authStr);
+			http.setRequestProperty("Authorization", "Basic " + authStr);
 			InputStream respuesta = http.getInputStream();
 			byte[] inp = respuesta.readAllBytes();
 			String json = "";
@@ -433,7 +480,7 @@ public class TestJSON {
 		return result;
 
 	}
-	
+
 	public static Users verifyAdmin() {
 		Users user = new Users();
 		try {
@@ -442,7 +489,7 @@ public class TestJSON {
 			HttpURLConnection http = (HttpURLConnection) (url).openConnection();
 			http.setRequestMethod("GET");
 			http.setRequestProperty("Accept", "application/json");
-			http.setRequestProperty("Authorization", "Basic "+ authStr);
+			http.setRequestProperty("Authorization", "Basic " + authStr);
 			InputStream respuesta = http.getInputStream();
 			byte[] inp = respuesta.readAllBytes();
 			String json = "";
@@ -465,8 +512,7 @@ public class TestJSON {
 		return user;
 	}
 
-
-	//Reports
+	// Reports
 
 	public static ArrayList<Users> listUsers() throws IOException, ParseException {
 		url = new URL(sitio + "users/listUsers");
@@ -474,7 +520,7 @@ public class TestJSON {
 		HttpURLConnection http = (HttpURLConnection) url.openConnection();
 		http.setRequestMethod("GET");
 		http.setRequestProperty("Accept", "application/json");
-		http.setRequestProperty("Authorization", "Basic "+authStr);
+		http.setRequestProperty("Authorization", "Basic " + authStr);
 		InputStream respuesta = http.getInputStream();
 		byte[] inp = respuesta.readAllBytes();
 		String json = "";
@@ -541,10 +587,5 @@ public class TestJSON {
 		}
 		return list;
 	}
-	
-	
-	
-	
-
 
 }

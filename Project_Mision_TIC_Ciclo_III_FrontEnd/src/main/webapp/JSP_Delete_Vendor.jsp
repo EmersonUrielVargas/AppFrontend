@@ -130,19 +130,32 @@
 	<div class="text-center" style="background-color: #0b5ed7;">
 		<h4 class="h4" style="color: #fff">Eliminación de Proveedor</h4>
 	</div>
-	<form method="post" action="./Servlet">
-		<table>
-			<td><div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon1">Cedula</span> <label><input
-						type="number" name="deleteV_vendorNit" class="form-control"
-						placeholder="" aria-label="cedula" aria-describedby="basic-addon1"></label>
-				</div></td>
-				<tr></tr>
+	
+			<div style="margin-left: 10%; background-color: #fff; box-shadow: 6px 20px 40px black; width: 80%; margin-top: 5%">
+		<div class="row">
+		
+			<div class="col-3" align="left" style=" width: 600px">
+				<img src="img/Vendors.png" width=100%></div>
+			
+			<div class="col-6" style="float: right; width:55%">
+				<form method="post" action="./Servlet"  style=" margin-left: 5%; margin-top:10%; float: right;width:100%">
+					<table style="  width: 100%">
+						<td><div class="input-group mb-3">
+								<span class="input-group-text" id="basic-addon1">Nit</span> <label><input
+									type="number" required="required" name="deleteV_vendorNit"
+									class="form-control" placeholder="" aria-label="cedula"
+									aria-describedby="basic-addon1"></label>
+							</div></td>
+						
+						<tr></tr>
 
-			<td><button type="submit" name="deleteV_deleteVendor"
-					class="btn btn-primary">Eliminar Usuario</button></td>
-		</table>
-	</form>
+						<td><button type="submit" name="deleteV_deleteVendor"
+								class="btn btn-primary">Eliminar Provedor</button></td>
+					</table>
+				</form>
 
+			</div>
+		</div>
+	</div>
 </body>
 </html>

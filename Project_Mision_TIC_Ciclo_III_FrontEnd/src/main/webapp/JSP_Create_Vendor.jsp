@@ -124,51 +124,67 @@
 	</nav>
 	</div>
 	<div style="padding-top: 70pt; background-color: #0d6efd"></div>
+	
+	
 
 
 	<div class="text-center" style="background-color: #0b5ed7;">
-		<h4 class="h4" style="color: #fff">Creación de Provedores</h4>
+		<h4 class="h4" style="color: #fff">Creación de Provedores</h4></div>
+		
+		
+		
+			<div style="margin-left: 10%; background-color: #fff; box-shadow: 6px 20px 40px black; width: 80%; margin-top: 5%">
+		<div class="row">
+		
+			<div class="col-3" align="left" style=" width: 600px">
+				<img src="img/Vendors.png" width=100%></div>
+			
+			<div class="col-6" style="float: right; width:55%">
+				<form method="post" action="./Servlet"  style=" margin-left: 5%; margin-top:10%; float: right;width:100%">
+					<table style="  width: 100%">
+						<td><div class="input-group mb-3">
+								<span class="input-group-text" id="basic-addon1">Nit</span> <label><input
+									type="number" required="required" name="createV_vendorNit"
+									class="form-control" placeholder="" aria-label="cedula"
+									aria-describedby="basic-addon1"></label>
+							</div></td>
+							
+						<td><div class="input-group mb-3">
+								<span class="input-group-text" id="basic-addon1">Nombre</span> <label><input
+									type="text" required="required" name="createV_vendorName"
+									class="form-control" placeholder="" aria-label="Usuario"
+									aria-describedby="basic-addon1"></label>
+							</div></td>
+						<tr></tr>
+						<td><div class="input-group mb-3">
+								<span class="input-group-text" id="basic-addon1">Ciudad</span>
+								<label><input type="text" required="required"
+									name="createV_vendorCity" class="form-control" placeholder=""
+									aria-label="Nombre" aria-describedby="basic-addon1"></label>
+							</div></td>
+						<td><div class="input-group mb-3" style="position: relative;">
+								<span class="input-group-text" id="basic-addon1">Dirección</span>
+								<label><input type="text" required="required"
+									name="createU_password" class="form-control" placeholder=""
+									aria-label="Contraseña" aria-describedby="basic-addon1"></label>
+							</div></td>
+						<tr></tr>
+						<td><div class="input-group mb-3">
+								<span class="input-group-text" id="basic-addon1">Telefono</span> <label><input type="number"
+									required="required" name="createV_vendorPhone"
+									class="form-control" placeholder="" aria-label="correo"
+									aria-describedby="basic-addon1"></label>
+							</div></td>
+						<tr></tr>
+
+						<td><button type="submit" name="createU_addUser"
+								class="btn btn-primary">Agregar Provedor</button></td>
+					</table>
+				</form>
+
+			</div>
+		</div>
 	</div>
-	<form method="post" action="./Servlet">
-		<table>
-			<td><div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon1">Nit</span> <label><input
-						type="number" required="required" name="createV_vendorNit"
-						class="form-control" placeholder="" aria-label="cedula"
-						aria-describedby="basic-addon1"></label>
-				</div></td>
-			<td><div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon1">Nombre</span> <label><input
-						type="text" required="required" name="createV_vendorName"
-						class="form-control" placeholder="" aria-label="Usuario"
-						aria-describedby="basic-addon1"></label>
-				</div></td>
-			<tr></tr>
-			<td><div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon1">Ciudad</span> <label><input
-						type="text" required="required" name="createV_vendorCity"
-						class="form-control" placeholder="" aria-label="Nombre"
-						aria-describedby="basic-addon1"></label>
-				</div></td>
-			<td><div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon1">Dirección</span> <label><input
-						type="text" required="required" name="createV_vendorAddress"
-						class="form-control" placeholder="" aria-label="Contraseña"
-						aria-describedby="basic-addon1"></label>
-				</div></td>
-			<tr></tr>
-			<td><div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon1"> Teléfono</span> <label><input
-						type="number" required="required" name="createV_vendorEmail"
-						class="form-control" placeholder="" aria-label="correo"
-						aria-describedby="basic-addon1"></label>
-				</div></td>
-			<tr></tr>
-
-			<td><button type="submit" name="createV_addVendor"
-					class="btn btn-primary">Agregar Provedor</button></td>
-		</table>
-	</form>
-
+		
 </body>
 </html>

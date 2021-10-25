@@ -96,36 +96,29 @@
 		<h4 class="h4" style="color: #fff">Productos</h4>
 	</div>
 	
-	<form method="post" action="./DemoServlet">
-		<table>
-			<tr>
-				<td><label>Cedula:</label></td>
-				<td><input type="text" name="cedula"></td>
-				<td><label>Nombre:</label></td>
-				<td><input type="text" name="nombre"></td>
-			</tr>
-			<tr>
-				<td><label>Correo Electronico:</label></td>
-				<td><input type="text" name="email"></td>
-				<td><label>Usuario:</label></td>
-				<td><input type="text" name="usuario"></td>
-			</tr>
-			<tr>
-				<td><label>Password:</label></td>
-				<td><input type="text" name="password"></td>
-			</tr>
-	
-				<td><button type="submit" name="Listar">Consultar</button></td>
+				<div style="margin-left: 10%; background-color: #fff; box-shadow: 6px 20px 40px black; width: 80%; margin-top: 5%">
+		<div class="row">
+		
+			<div class="col-3" align="left" style=" width: 600px">
+				<img src="img/Products.jpg" width=100%></div>
+			
+			<div class="col-6" style="float: right; width:55%">
+				<form method="post" action="./Servlet"  style=" margin-left: 5%; margin-top:10%; float: right;width:100%" enctype="multipart/form-data">
+					<table style="  width: 100%">
+						      
+						<td><div class="input-group mb-3">
+								<span class="input-group-text" id="basic-addon1">Examinar...</span> <label><input type="file" name="fileProducts"></label>
+							</div></td>
+						<tr></tr>
 
-				<td><input type="submit" value="Agregar" name="Agregar"></td>
+						<td><button type="submit" name="addP_addProducts"
+								class="btn btn-primary">Cargar Productos</button></td>
+					</table>
+				</form>
 
-				<td><input type="submit" value="actualizar" name="actualizar"></td>
-
-				<td><input type="submit" value="eliminar" name="eliminar"></td>
-
-			</tr>
-		</table>
-	</form>
+			</div>
+		</div>
+	</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

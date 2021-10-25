@@ -50,7 +50,7 @@
 	}
 	}
 	%>
-	<div style =" width: 100%; height: 71pt; position: fixed; background-color: #0d6efd;  "  >
+	<div style =" width: 100%; height: 71pt; position: fixed; background-color: #0d6efd; "  >
 	<div class="text-center" style =" width: 20%; float: left; background-color: transparent;" >
 		<img src="img/Logo_Bakery.png" width="300">
 	</div>
@@ -131,9 +131,17 @@
 	<div class="text-center" style="background-color: #0b5ed7;">
 		<h4 class="h4" style="color: #fff;">Creación de Clientes</h4>
 	</div>
-	<form method="post" action="./Servlet">
-		<table>
-			<td><div class="input-group mb-3">
+	
+	<div style="margin-left: 10%; background-color: #fff; box-shadow: 6px 20px 40px black; width: 80%; margin-top: 5%">
+		<div class="row">
+		
+			<div class="col-3" align="left" style=" width: 600px">
+				<img src="img/User.jpg" width=100%></div>
+			
+			<div class="col-6" style="float: right; width: 55%">
+			<form method="post" action="./Servlet"  style=" margin-left: 5%; margin-top:10%; float: right;  width: 100%">
+					<table style="  width: 100%">
+				<td><div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon1">Cedula</span> <label><input
 						type="number" required="required" name="createC_clientId" class="form-control"
 						placeholder="" aria-label="cedula" aria-describedby="basic-addon1"></label>
@@ -169,6 +177,11 @@
 					class="btn btn-primary">Agregar Usuario</button></td>
 		</table>
 	</form>
+	
+				
+	    </div>
+		</div>
+	</div>
 
 </body>
 </html>

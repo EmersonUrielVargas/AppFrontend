@@ -1,3 +1,6 @@
+<%@page import="jsons.TestJSON"%>
+<%@page import="java.util.ArrayList"%>
+<%@ page import='jsons.Users'%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -18,38 +21,6 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 		crossorigin="anonymous"></script>
-
-	<%
-	Object auxRequest = request.getAttribute("resultUpdateUser");
-	if (auxRequest != null) {
-		boolean result = (boolean) auxRequest;
-		if (result == true) {
-	%>
-	<div class="alert alert-success d-flex align-items-center" role="alert"
-		style="position: absolute; width: 100%">
-		<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img"
-			aria-label="Success:">
-					<use xlink:href="#check-circle-fill" /></svg>
-		<div>Los datos del usuario se actualizaron exitosamente</div>
-	</div>
-
-	<%
-	} else {
-	%>
-	<div class="alert alert-danger d-flex align-items-center" role="alert"
-		style="position: absolute; width: 100%">
-		<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img"
-			aria-label="Danger:">
-				<use xlink:href="#exclamation-triangle-fill" /></svg>
-		<div>Los datos del usuario no pudieron ser actualizados</div>
-	</div>
-
-
-	<%
-	}
-	}
-	%>
-
 
 	<div style =" width: 100%; height: 71pt; position: fixed; background-color: #0d6efd;  "  >
 	<div class="text-center" style =" width: 20%; float: left; background-color: transparent" >
@@ -130,46 +101,41 @@
 
 
 	<div class="text-center" style="background-color: #0b5ed7;">
-		<h4 class="h4" style="color: #fff">Actualización de los datos del Usuario</h4>
+		<h4 class="h4" style="color: #fff">Listado de Usuarios</h4>
 	</div>
-	<form method="post" action="./Servlet">
-		<table>
-			<td><div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon1">Cedula</span> <label><input
-						type="number" name="updateU_userId" class="form-control"
-						placeholder="" aria-label="cedula" aria-describedby="basic-addon1"></label>
-				</div></td>
-			<td><div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon1">Nombre</span> <label><input
-						type="text" required="required" name="updateU_userName" class="form-control"
-						placeholder="" aria-label="Usuario"
-						aria-describedby="basic-addon1"></label>
-				</div></td>
-			<tr></tr>
-			<td><div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon1">Usuario</span> <label><input
-						type="text" required="required" name="updateU_user" class="form-control"
-						placeholder="" aria-label="Nombre" aria-describedby="basic-addon1"></label>
-				</div></td>
-			<td><div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon1">Contraseña</span>
-					<label><input type="text"required="required" name="updateU_password"
-						class="form-control" placeholder="" aria-label="Contraseña"
-						aria-describedby="basic-addon1"></label>
-				</div></td>
-			<tr></tr>
-			<td><div class="input-group mb-3">
-					<span class="input-group-text" id="basic-addon1">Correo
-						electronico</span> <label><input type="text"
-						name="updateU_emailUser" required="required" class="form-control" placeholder=""
-						aria-label="correo" aria-describedby="basic-addon1"></label>
-				</div></td>
-			<tr></tr>
+	
+	<div style="margin-left: 10%; background-color: #fff; box-shadow: 6px 20px 40px black; width: 80%; margin-top: 5%">
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col" class="bg-primary" style="color: white">Cedula</th>
+				<th scope="col" class="bg-primary" style="color: white">Nombre</th>
+				<th scope="col" class="bg-primary" style="color: white">Correo</th>
+				<th scope="col" class="bg-primary" style="color: white">Usuario</th>
+				<th scope="col" class="bg-primary" style="color: white">Contraseña</th>
 
-			<td><button type="submit" name="updateU_updateUser"
-					class="btn btn-primary">Actualizar Usuario</button></td>
-		</table>
-	</form>
+			</tr>
+		</thead>
+		<tbody>
+	<%
+	ArrayList<Users> listUsers = TestJSON.listUsers();
+	for (Users user : listUsers) {
+	%>
+			<tr>
+				<th class="table-light" scope="row"><%=user.getUser_id()%></th>
+				<td class="table-light"><%=user.getUser_name()%></td>
+				<td class="table-light"><%=user.getUser_email()%></td>
+				<td class="table-light"><%=user.getUser()%></td>
+				<td class="table-light"><%=user.getPassword()%></td>
+
+			</tr>
+			
+	<%} %>
+			
+		</tbody>
+	</table>
+	
+	</div>
 
 </body>
 </html>

@@ -132,8 +132,15 @@
 		<h4 class="h4" style="color: #fff">Actualización de los datos del
 			Usuario</h4>
 	</div>
-	<form method="post" action="./Servlet">
-		<table>
+	<div style="margin-left: 10%; background-color: #fff; box-shadow: 6px 20px 40px black; width: 80%; margin-top: 5%">
+		<div class="row">
+		
+			<div class="col-3" align="left" style=" width: 600px">
+				<img src="img/User.jpg" width=100%></div>
+			
+			<div class="col-6" style="float: right; width: 55%">
+				<form method="post" action="./Servlet"  style=" margin-left: 5%; margin-top:10%; float: right; width: 100%">
+					<table style="  width: 100%">
 			<td><div class="input-group mb-3">
 					<span class="input-group-text" id="basic-addon1">Cedula</span> <label><input
 						type="number" name="updateU_userId" class="form-control"
@@ -171,6 +178,10 @@
 					class="btn btn-primary">Actualizar Usuario</button></td>
 		</table>
 	</form>
+	</div>
+	</div>
+	</div>
+	
 
 </body>
 </html>

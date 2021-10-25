@@ -505,6 +505,45 @@ public class TestJSON {
 		return list;
 	}
 	
+	public static ArrayList<Clients> listClients() throws IOException, ParseException {
+		url = new URL(sitio + "clients/listClients");
+		String authStr = Base64.getEncoder().encodeToString("usuario:tiendagenerica".getBytes());
+		HttpURLConnection http = (HttpURLConnection) url.openConnection();
+		http.setRequestMethod("GET");
+		http.setRequestProperty("Accept", "application/json");
+		http.setRequestProperty("Authorization", "Basic "+authStr);
+		InputStream respuesta = http.getInputStream();
+		byte[] inp = respuesta.readAllBytes();
+		String json = "";
+		for (int i = 0; i < inp.length; i++) {
+			json += (char) inp[i];
+		}
+		ArrayList<Clients> lista = new ArrayList<Clients>();
+		lista = parsingClients(json);
+		http.disconnect();
+		return lista;
+	}
+	
+	public static ArrayList<Clients> parsingClients(String json) throws ParseException {
+		JSONParser jsonParser = new JSONParser();
+		ArrayList<Clients> list = new ArrayList<Clients>();
+		JSONArray clients = (JSONArray) jsonParser.parse(json);
+		Iterator<?> i = clients.iterator();
+		while (i.hasNext()) {
+			JSONObject innerObj = (JSONObject) i.next();
+			Clients client = new Clients();
+			client.setClient_id(Long.parseLong(innerObj.get("client_id").toString()));
+			client.setClient_name(innerObj.get("client_name").toString());
+			client.setClient_email(innerObj.get("client_email").toString());
+			client.setClient_address(innerObj.get("client_adress").toString());
+			client.setClient_phone(innerObj.get("client_telephone").toString());
+			list.add(client);
+		}
+		return list;
+	}
+	
+	
+	
 	
 
 

@@ -25,7 +25,7 @@
 	%>
 
 	<div
-		style="width: 100%; height: 71pt; position: fixed; background-color: #0d6efd;">
+		style="width: 100%; height: 71pt; background-color: #0d6efd;">
 		<div class="text-center"
 			style="width: 20%; float: left; background-color: transparent">
 			<img src="img/Logo_Bakery.png" width="300">
@@ -117,7 +117,6 @@
 					sesión</a></li>
 		</nav>
 	</div>
-	<div style="padding-top: 70pt; background-color: #0d6efd"></div>
 
 
 	<div class="text-center" style="background-color: #0b5ed7;">
@@ -150,7 +149,7 @@
 
 			</div>
 		</div>
-	</div>
+	
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
@@ -201,6 +200,6 @@
 	}
 	}
 	%>
-
+	</div>
 </body>
 </html>

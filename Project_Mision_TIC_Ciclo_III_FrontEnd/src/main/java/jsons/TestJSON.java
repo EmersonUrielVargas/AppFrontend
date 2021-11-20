@@ -119,10 +119,10 @@ public class TestJSON {
 			JSONParser jsonParser = new JSONParser();
 			JSONObject innerObj = (JSONObject) jsonParser.parse(json);
 			client.setClient_id(Long.parseLong(innerObj.get("client_id").toString()));
-			client.setClient_address(innerObj.get("client_address").toString());
+			client.setClient_address(innerObj.get("client_adress").toString());
 			client.setClient_email(innerObj.get("client_email").toString());
 			client.setClient_name(innerObj.get("client_name").toString());
-			client.setClient_name(innerObj.get("client_phone").toString());
+			client.setClient_name(innerObj.get("client_telephone").toString());
 
 			http.disconnect();
 		} catch (IOException | ParseException e) {
